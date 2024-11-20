@@ -9,6 +9,7 @@ streamlit = "*"
 plotly-express = "*"
 
 [dev-packages]
+ipykernel = "*"
 
 [requires]
 python_version = "3.13"
