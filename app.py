@@ -63,3 +63,6 @@ price_vs_odometer = px.scatter(
 )
 
 price_vs_odometer.show()
+
+import plotly
+plotly.__version__
