@@ -4,7 +4,7 @@ import streamlit as st
 from scipy import stats as sta
 import numpy as np
 #import matplotlib.pyplot as plt
-import plotly_express as px
+#import plotly_express as px
 
 #Import dataset
 df = pd.read_csv('vehicles_us.csv')
@@ -49,20 +49,16 @@ else:
     print(df)
 
 st.write("""
-         ##Vehicles by Make
+         ##Price vs. Odometer'
           """)
 
-#st.scatter_chart()
 
-price_vs_odometer = px.scatter(
-    df,
-    x='odometer',
-    y='price',
-    title='Price vs. Odometer',
-    opacity=0.5 
-)
+#price_vs_odometer = st.scatter_chart(
+#    df,
+#    x='odometer',
+#    y='price'
+#    #use_container_width=True
+#)
 
-price_vs_odometer.show()
 
-import plotly
-plotly.__version__
+#st.write(price_vs_odometer)
