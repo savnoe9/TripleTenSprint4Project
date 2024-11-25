@@ -37,20 +37,17 @@ for value in df['manufacturer']:
 df['luxury_class'] = luxury_class
 
 
+st.header("Vehicle Advertisement Date Analysis")
 
-st.write("""
-         ##View Vehicle Advertisement Dataset
-          """)
+st.write("View Vehicle Advertisement Dataset")
 TenK = st.checkbox("Show vehicles under $10,000")
 
 if TenK:
-    st.write(print(df.loc[df['price'] < 10000]))
+    st.dataframe(print(df.loc[df['price'] < 10000]))
 else:
-    print(df)
+    st.dataframe(df)
 
-st.write("""
-         ##Price vs. Odometer'
-          """)
+st.subheader("Price vs. Odometer")
 
 
 #price_vs_odometer = st.scatter_chart(
