@@ -51,7 +51,7 @@ else:
 
 
 
-st.subheader("Car Types Compared to Days Listed")
+st.subheader("Vehicle Types Compared to Days Listed")
 
 #Create Histogram
 
@@ -59,14 +59,14 @@ fig = px.histogram(
     df,
     x='days_listed',
     color='type',
-    labels={'days_listed': 'Days Listed', 'type': 'Car Type'},
+    labels={'days_listed': 'Days Listed', 'type': 'Vehicle Type'},
     color_discrete_sequence=px.colors.qualitative.Set1 
 )
 
 st.plotly_chart(fig)
 
 
-st.subheader("Price vs. Odometer")
+st.subheader("Price vs. Odometer Reading")
 
 #Create Scatterplot
 scatdf1 = df.loc[df['price'] < 100000]
