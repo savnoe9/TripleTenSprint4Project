@@ -19,6 +19,7 @@ In this file the libraries used include:
   
   -scipy
 
+
 Methods used in this file include converting columns to appropriate datatypes, dropping rows that are missing important data, adding a new column to comapre luxury vs standard vehicles.
 
 There is a checkbox that allows the selection of data to be viewed to show all vehicles or vehicles listed under $10,000 (a common filter people use when vehicle shopping).
