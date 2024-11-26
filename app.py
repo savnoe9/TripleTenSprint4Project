@@ -1,10 +1,12 @@
 #Import appropriate libraries
 import pandas as pd
 import streamlit as st
-#from scipy import stats as sta
-#import numpy as np
-#import matplotlib.pyplot as plt
+import plotly.figure_factory as ff
+from scipy import stats as sta
+import numpy as np
+import matplotlib.pyplot as plt
 import plotly_express as px
+
 
 #Import dataset
 df = pd.read_csv('vehicles_us.csv')
@@ -43,40 +45,33 @@ st.write("View Vehicle Advertisement Dataset")
 TenK = st.checkbox("Show vehicles under $10,000")
 
 if TenK:
-    st.dataframe(print(df.loc[df['price'] < 10000]))
+    st.dataframe(df.loc[df['price'] < 10000])
 else:
     st.dataframe(df)
 
+
+
+st.subheader("Car Types Compared to Days Listed")
+
+#Create Histogram
+
+fig = px.histogram(
+    df,
+    x='days_listed',
+    color='type',
+    labels={'days_listed': 'Days Listed', 'type': 'Car Type'},
+    color_discrete_sequence=px.colors.qualitative.Set1 
+)
+
+st.plotly_chart(fig)
+
+
 st.subheader("Price vs. Odometer")
 
+#Create Scatterplot
+scatdf1 = df.loc[df['price'] < 100000]
+scatdf = scatdf1.loc[scatdf1['odometer'] < 600000]
 
-#price_vs_odometer = st.scatter_chart(
-#    df,
-#    x='odometer',
-#    y='price'
-#    #use_container_width=True
-#)
+scat = px.scatter(scatdf, x='price', y='odometer', opacity=0.5)
 
-
-#st.write(price_vs_odometer)
-
-import streamlit as st
-import numpy as np
-import plotly.figure_factory as ff
-
-# Add histogram data
-x1 = np.random.randn(200) - 2
-x2 = np.random.randn(200)
-x3 = np.random.randn(200) + 2
-
-# Group data together
-hist_data = [x1, x2, x3]
-
-group_labels = ['Group 1', 'Group 2', 'Group 3']
-
-# Create distplot with custom bin_size
-fig = ff.create_distplot(
-        hist_data, group_labels, bin_size=[.1, .25, .5])
-
-# Plot!
-st.plotly_chart(fig, use_container_width=True)
+event = st.plotly_chart(scat, on_select="rerun")
