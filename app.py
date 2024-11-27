@@ -4,7 +4,6 @@ import streamlit as st
 import plotly.figure_factory as ff
 from scipy import stats as sta
 import numpy as np
-import matplotlib.pyplot as plt
 import plotly_express as px
 
 
