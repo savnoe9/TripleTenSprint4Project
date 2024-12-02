@@ -12,8 +12,8 @@ df = pd.read_csv('vehicles_us.csv')
 #df.info()
 
 #Drop rows where model year or odometer reading is missing
-df=df.dropna(subset=['model_year'])
-df=df.dropna(subset=['odometer'])
+#df=df.dropna(subset=['model_year'])
+#df=df.dropna(subset=['odometer'])
 
 #Convert columns to appropriate data types
 df['date_posted'] = pd.to_datetime(df['date_posted'])
@@ -21,9 +21,12 @@ df['is_4wd'] = df['is_4wd'].fillna(value=0)
 df['is_4wd'] = df['is_4wd'].astype('int')
 df['cylinders'] = df['cylinders'].fillna(value=0)
 df['cylinders'] = df['cylinders'].astype('int')
+df['model_year'] = df['model_year'].fillna(value=0)
 df['model_year'] = df['model_year'].astype('int')
+df['odometer'] = df['odometer'].fillna(value=0)
 df['odometer'] = df['odometer'].astype('int')
 df['paint_color'] = df['paint_color'].fillna(value='Unknown')
+
 
 # Calculate the median cylinders for each model_year, fill in missing values
 median_cylinders = df.groupby(['model_year', 'model'])['cylinders'].transform('median')
@@ -118,9 +121,12 @@ lux_hist = px.histogram(df,x='luxury_class',color='type')
 st.write(lux_hist)
 
 
+
 st.subheader('Condition vs. Model Year')
 
-cond_year_hist = px.histogram(df,x='model_year',color='condition')
+conddf = df.loc[df['model_year'] > 0]
+
+cond_year_hist = px.histogram(conddf,x='model_year',color='condition')
 st.write(cond_year_hist)
 
 
