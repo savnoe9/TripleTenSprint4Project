@@ -5,7 +5,7 @@ sys.setrecursionlimit(1500)
 import pandas as pd
 import streamlit as st
 import plotly.figure_factory as ff
-from scipy import stats as sta
+#from scipy import stats as sta
 import numpy as np
 import plotly_express as px
 
