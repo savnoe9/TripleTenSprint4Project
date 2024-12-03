@@ -20,24 +20,25 @@ df = pd.read_csv('vehicles_us.csv')
 
 #Convert columns to appropriate data types
 df['date_posted'] = pd.to_datetime(df['date_posted'])
-df['is_4wd'] = df['is_4wd'].fillna(value=0)
-df['is_4wd'] = df['is_4wd'].astype('int')
-df['cylinders'] = df['cylinders'].fillna(value=0)
-df['cylinders'] = df['cylinders'].astype('int')
-df['model_year'] = df['model_year'].fillna(value=0)
-df['model_year'] = df['model_year'].astype('int')
-df['odometer'] = df['odometer'].fillna(value=0)
-df['odometer'] = df['odometer'].astype('int')
 df['paint_color'] = df['paint_color'].fillna(value='Unknown')
 df['price'] = df['price'].astype(float)
 df['price'] = df['price'].fillna(0)
+df['model_year'] = df['model_year'].astype(float)
+df['primodel_yearce'] = df['model_year'].fillna(0)
+df['cylinders'] = df['cylinders'].astype(float)
+df['cylinders'] = df['cylinders'].fillna(0)
+df['is_4wd'] = df['is_4wd'].astype(float)
+df['is_4wd'] = df['is_4wd'].fillna(0)
+df['odometer'] = df['odometer'].astype(float)
+df['odometer'] = df['odometer'].fillna(0)
+
 
 
 # Calculate the median cylinders for each model_year, fill in missing values
 median_cylinders = df.groupby(['model_year', 'model'])['cylinders'].transform('median')
 df['cylinders'] = df['cylinders'].fillna(median_cylinders)
 df['cylinders'] = df['cylinders'].fillna(value=0)
-df['cylinders'] = df['cylinders'].astype('int')
+df['cylinders'] = df['cylinders'].astype(float)
 
 #Add new column - manufacturer
 df['manufacturer'] = df['model'].apply(lambda x:x.split()[0])
