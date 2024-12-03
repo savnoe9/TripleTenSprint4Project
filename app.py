@@ -9,7 +9,7 @@ import plotly.figure_factory as ff
 import numpy as np
 import plotly_express as px
 
-st.experimental_set_query_params(use_arrow=False)
+#st.query_params(use_arrow=False)
 #Import dataset
 df = pd.read_csv('vehicles_us.csv')
 #df.info()
