@@ -1,3 +1,6 @@
+import sys
+sys.setrecursionlimit(1500)
+
 #Import appropriate libraries
 import pandas as pd
 import streamlit as st
