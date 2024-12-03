@@ -29,6 +29,8 @@ df['model_year'] = df['model_year'].astype('int')
 df['odometer'] = df['odometer'].fillna(value=0)
 df['odometer'] = df['odometer'].astype('int')
 df['paint_color'] = df['paint_color'].fillna(value='Unknown')
+df['price'] = df['price'].astype(float)
+df['price'] = df['price'].fillna(0)
 
 
 # Calculate the median cylinders for each model_year, fill in missing values
