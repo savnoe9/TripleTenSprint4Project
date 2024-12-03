@@ -31,7 +31,8 @@ df['is_4wd'] = df['is_4wd'].astype(float)
 df['is_4wd'] = df['is_4wd'].fillna(0)
 df['odometer'] = df['odometer'].astype(float)
 df['odometer'] = df['odometer'].fillna(0)
-
+df['days_listed'] = df['days_listed'].astype(float)
+df['days_listed'] = df['days_listed'].fillna(0)
 
 
 # Calculate the median cylinders for each model_year, fill in missing values
