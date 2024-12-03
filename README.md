@@ -28,3 +28,16 @@ There is a checkbox that allows the selection of data to be viewed to show all v
 Plotly_express is used to create a histogram and scatterplot and streamlit is used to display these figures in the web app on Render.
 
 To launch this project on your local machine, use git to clone the repository, and navigate to the virtual environment within your terminal. To see the web app, use the command streamlit run app.py within terminal.
+
+# Simple Streamlit app & deployment to Render
+
+## Prerequisites
+- Pipenv
+
+## Install dependencies
+pipenv shell
+pipenv install
+
+## Run the app locally
+streamlit run app.py
+
