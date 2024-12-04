@@ -13,9 +13,7 @@ import plotly.express as px
 df = pd.read_csv('vehicles_us.csv')
 #df.info()
 
-#Drop rows where model year or odometer reading is missing
-#df=df.dropna(subset=['model_year'])
-#df=df.dropna(subset=['odometer'])
+
 
 #Convert columns to appropriate data types
 df['date_posted'] = pd.to_datetime(df['date_posted'])
