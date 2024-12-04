@@ -9,7 +9,6 @@ import plotly.figure_factory as ff
 import numpy as np
 import plotly.express as px
 
-#st.query_params(use_arrow=False)
 #Import dataset
 df = pd.read_csv('vehicles_us.csv')
 #df.info()
@@ -21,13 +20,6 @@ df = pd.read_csv('vehicles_us.csv')
 #Convert columns to appropriate data types
 df['date_posted'] = pd.to_datetime(df['date_posted'])
 df['paint_color'] = df['paint_color'].fillna(value='Unknown')
-# df['price'] = df['price'].apply(lambda x: np.float64(x))
-# pd.set_option("display.float_format", lambda x: '%.2f' % x)
-# df['price'] = df['price'].fillna(0).astype('float64')
-#df['price'] = df['price'].astype('float64')
-#df['price'] = df['price'].fillna(0)
-# df['model_year'] = df['model_year'].astype('float64')
-# df['model_year'] = df['model_year'].fillna(0)
 df['cylinders'] = df['cylinders'].astype('float64')
 df['cylinders'] = df['cylinders'].fillna(0)
 df['is_4wd'] = df['is_4wd'].astype('float64')
@@ -36,8 +28,6 @@ df['odometer'] = df['odometer'].astype('float64')
 df['odometer'] = df['odometer'].fillna(0)
 df['days_listed'] = df['days_listed'].astype('float64')
 df['days_listed'] = df['days_listed'].fillna(0)
-#print(df['price'].head())
-#print(df.price.unique())
 df['price'] = df['price'].astype(float).fillna(0)
 df['model_year'] = df['model_year'].astype(float).fillna(0)
 
