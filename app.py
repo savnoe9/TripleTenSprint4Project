@@ -7,7 +7,7 @@ import streamlit as st
 import plotly.figure_factory as ff
 #from scipy import stats as sta
 import numpy as np
-import plotly_express as px
+import plotly.express as px
 
 #st.query_params(use_arrow=False)
 #Import dataset
