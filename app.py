@@ -135,34 +135,30 @@ st.write(cond_year_hist)
 
 
 
-# st.subheader("Vehicle Manufacturer Price Comparison")
-# manufac_list = sorted(df['manufacturer'].unique())
-# manufacturer_1 = st.selectbox(
-#                               label='Select manufacturer 1', 
-#                               options=manufac_list, 
-#                               index=manufac_list.index('ford')
-#                               )
+st.subheader("Vehicle Manufacturer Price Comparison")
+manufac_list = sorted(df['manufacturer'].unique())
+manufacturer_1 = st.selectbox(
+                               label='Select manufacturer 1', 
+                               options=manufac_list, 
+                               index=manufac_list.index('ford')
+                               )
+ manufacturer_2 = st.selectbox(
+                               label='Select manufacturer 2',
+                               options=manufac_list, 
+                               index=manufac_list.index('toyota')
+                               )
 
-# manufacturer_2 = st.selectbox(
-#                               label='Select manufacturer 2',
-#                               options=manufac_list, 
-#                               index=manufac_list.index('toyota')
-#                               )
-
-# mask_filter = (df['manufacturer'] == manufacturer_1) | (df['manufacturer'] == manufacturer_2)
-# df_filtered = df[mask_filter]
-
-# normalize = st.checkbox('Normalize histogram', value=True)
-# if normalize:
-#     histnorm = 'percent'
-# else:
-#     histnorm = None
-
-# filtered_hist = px.histogram(df_filtered,
-#                       x='price',
-#                       nbins=30,
-#                       color='manufacturer',
-#                       histnorm=histnorm,
-#                       barmode='overlay')
-
-# st.write(filtered_hist)
+mask_filter = (df['manufacturer'] == manufacturer_1) | (df['manufacturer'] == manufacturer_2)
+df_filtered = df[mask_filter]
+normalize = st.checkbox('Normalize histogram', value=True)
+if normalize:
+    histnorm = 'percent'
+else:
+    histnorm = None
+filtered_hist = px.histogram(df_filtered,
+                      x='price',
+                      nbins=30,
+                      color='manufacturer',
+                      histnorm=histnorm,
+                      barmode='overlay')
+st.write(filtered_hist)
