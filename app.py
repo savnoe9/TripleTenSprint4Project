@@ -96,7 +96,6 @@ manubar = px.bar(
                 df,
                 x = 'manufacturer', 
                 labels={'manufacturer': 'Vehicle Manufacturer'},
-                width=1600,
                 height=1000)
 
 st.plotly_chart(manubar)
@@ -106,7 +105,6 @@ modelbar = px.bar(
                 df,
                 x = 'model', 
                 labels={'model': 'Vehicle Model'},
-                width=1600,
                 height=1000)
 
 st.plotly_chart(modelbar)
